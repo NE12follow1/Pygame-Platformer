@@ -21,6 +21,29 @@ def draw_grid():
         pygame.draw.line(screen, (255, 255, 255), (0, line * tile_size), (screen_width, line * tile_size))
         pygame.draw.line(screen, (255, 255, 255), (line * tile_size, 0), (line * tile_size, screen_height))
 
+
+
+class World():
+    def __init__(self, data):
+
+        #load images
+        dirt_img = pygame.image.load("img/dirt.png")
+
+        for row in data:
+            for tile in row:
+                if tile == 1:
+                    img = pygame.transform.scale(dirt_img, (tile_size, tile_size))
+
+
+world_data = [
+[1, 1, 1, 1, 1],
+[1, 0, 0, 0, 1],
+[1, 0, 0, 0, 1],
+[1, 0, 0, 0, 1],
+[1, 1, 1, 1, 1],
+]
+
+
 run = True
 while run:
 
